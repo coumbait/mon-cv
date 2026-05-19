@@ -1,0 +1,363 @@
+/* ===== VARIABLES DE COULEURS ===== */
+:root {
+  --couleur-rose:       #e8b4a8;
+  --couleur-rose-clair: #f2d4cc;
+  --couleur-beige:      #e8e4dc;
+  --couleur-beige-pale: #f5f3ee;
+  --couleur-fond:       #fafaf8;
+  --couleur-texte:      #2a2a2a;
+  --couleur-texte-doux: #666660;
+  --couleur-date:       #999990;
+  --largeur-sidebar:    280px;
+  --font-titre:         'Playfair Display', Georgia, serif;
+  --font-corps:         'Lato', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-corps);
+  background-color: var(--couleur-fond);
+  color: var(--couleur-texte);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--couleur-texte);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #8a5a4e;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* ===== CONTENEUR PRINCIPAL ===== */
+.cv-wrapper {
+  display: flex;
+  min-height: 100vh;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
+  background-color: white;
+}
+
+/*Sidebar*/
+.sidebar {
+  width: var(--largeur-sidebar);
+  flex-shrink: 0;
+  background-color: var(--couleur-beige-pale);
+  position: relative;
+  overflow: hidden;
+  padding: 0 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Blob rose en haut à gauche */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob-top {
+  width: 260px;
+  height: 260px;
+  background-color: var(--couleur-rose-clair);
+  top: -60px;
+  left: -80px;
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+}
+
+.blob-bottom {
+  width: 200px;
+  height: 200px;
+  background-color: var(--couleur-beige);
+  bottom: -40px;
+  left: -50px;
+  border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%;
+}
+
+/* Tout le contenu de la sidebar passe devant les blobs */
+.sidebar > *:not(.blob) {
+  position: relative;
+  z-index: 1;
+}
+
+/* photo */
+.photo-wrapper {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  display: block;
+}
+
+/* sections sidebar */
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Titre de section sidebar — style du modèle */
+.sidebar-title {
+  font-family: var(--font-corps);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--couleur-texte);
+  padding-bottom: 0.3rem;
+  border-bottom: 1.5px solid var(--couleur-texte);
+  margin-bottom: 0.3rem;
+}
+
+/* liste de contact */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--couleur-texte);
+  word-break: break-word;
+}
+
+.icon {
+  font-size: 0.85rem;
+  margin-top: 1px;
+  color: var(--couleur-texte-doux);
+  flex-shrink: 0;
+}
+
+/* LISTES SIMPLES (compétences, langues, loisirs) */
+.simple-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.simple-list li {
+  font-size: 0.9rem;
+  color: var(--couleur-texte);
+  line-height: 1.5;
+}
+
+/*COLONNE DROITE (contenu principal) */
+
+.main-content {
+  flex: 1;
+  padding: 2.5rem 2.5rem 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: white;
+}
+
+/*NOM EN GRAND*/
+.cv-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.cv-name {
+  font-family: var(--font-titre);
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: right;
+  letter-spacing: 0.02em;
+  color: var(--couleur-texte);
+  text-transform: uppercase;
+}
+
+/* SECTIONS MAIN */
+.main-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+/* Titre de section main — style du modèle */
+.main-title {
+  font-family: var(--font-corps);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--couleur-texte);
+  padding-bottom: 0.35rem;
+  border-bottom: 1.5px solid var(--couleur-texte);
+}
+
+/*PROFIL*/
+.profile-text {
+  font-size: 0.92rem;
+  color: var(--couleur-texte);
+  line-height: 1.75;
+}
+
+.profile-text strong {
+  font-weight: 700;
+}
+
+.profile-text em {
+  font-style: italic;
+  color: var(--couleur-texte-doux);
+}
+
+/* ENTRÉES (formation / expérience)*/
+.entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px dashed #e0ddd6;
+}
+
+.entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Ligne titre + organisation */
+.entry-header {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.entry-title {
+  font-weight: 700;
+  color: var(--couleur-texte);
+}
+
+.entry-separator {
+  color: var(--couleur-texte-doux);
+  margin: 0 0.15rem;
+}
+
+.entry-org {
+  font-weight: 400;
+  color: var(--couleur-texte);
+}
+
+/* Date en gris clair — comme sur le modèle */
+.entry-date {
+  font-size: 0.82rem;
+  color: var(--couleur-date);
+  font-style: normal;
+}
+
+/* Description */
+.entry-detail {
+  font-size: 0.88rem;
+  color: var(--couleur-texte);
+  line-height: 1.55;
+}
+
+/*RESPONSIVE — TABLETTE (600px – 900px)*/
+@media (max-width: 900px) {
+  .cv-wrapper {
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  :root {
+    --largeur-sidebar: 240px;
+  }
+
+  .cv-name {
+    font-size: 2.2rem;
+  }
+
+  .main-content {
+    padding: 2rem 1.75rem;
+  }
+}
+
+/*RESPONSIVE — MOBILE (< 600px)
+   Empilement vertical : sidebar au-dessus*/
+@media (max-width: 600px) {
+  .cv-wrapper {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  /* Sur mobile : photo centrée et plus petite */
+  .photo-wrapper {
+    margin-top: 0.5rem;
+  }
+
+  .photo {
+    width: 110px;
+    height: 110px;
+  }
+
+  /* Blobs repositionnés pour le mobile */
+  .blob-top {
+    width: 180px;
+    height: 180px;
+    top: -40px;
+    left: -50px;
+  }
+
+  .blob-bottom {
+    display: none;
+  }
+
+  /* Nom plus petit sur mobile */
+  .cv-name {
+    font-size: 1.8rem;
+    text-align: left;
+  }
+
+  .cv-header {
+    justify-content: flex-start;
+  }
+
+  .main-content {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  /* Titre principal réduit sur mobile */
+  .sidebar-title,
+  .main-title {
+    font-size: 0.8rem;
+  }
+}
