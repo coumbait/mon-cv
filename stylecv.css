@@ -332,8 +332,18 @@ ul {
     font-size: 0.75rem;
   }
 
-  /* Cacher les blobs pour y voir plus clair sur petit écran */
-  .blob-top, .blob-bottom {
-    display: none;
+  /* Ajustement du rond rose pour le mobile */
+  .blob-top {
+    display: block; /* On le réaffiche ! */
+    width: 120px;   /* On le fait plus petit pour le téléphone */
+    height: 120px;
+    top: -20px;     /* On le replace bien dans le coin */
+    left: -30px;
+    position: absolute;
+    z-index: 0;     /* Reste bien en arrière-plan */
+  }
+
+  .blob-bottom {
+    display: none;  /* On laisse celui du bas caché pour ne pas surcharger */
   }
 }
