@@ -285,64 +285,40 @@ ul {
   line-height: 1.55;
 }
 
-/*RESPONSIVE — TABLETTE (600px – 900px)*/
-@media (max-width: 900px) {
-  .cv-wrapper {
-    max-width: 100%;
-    box-shadow: none;
-  }
-
-  :root {
-    --largeur-sidebar: 240px;
-  }
-
-  .cv-name {
-    font-size: 2.2rem;
-  }
-
-  .main-content {
-    padding: 2rem 1.75rem;
-  }
-}
-
 /*RESPONSIVE — MOBILE (< 600px)
-   Empilement vertical : sidebar au-dessus*/
+    Maintien de la sidebar à gauche */
 @media (max-width: 600px) {
   .cv-wrapper {
-    flex-direction: column;
+    flex-direction: row; /* Force l'alignement côte à côte */
   }
 
   .sidebar {
-    width: 100%;
-    padding: 1.5rem;
+    width: 35%; /* La barre prend 35% de la largeur du téléphone */
+    padding: 1rem 0.5rem;
+    gap: 1rem;
+    min-width: 120px; /* Évite qu'elle devienne trop minuscule */
+  }
+
+  .main-content {
+    width: 65%; /* Le contenu prend le reste de la place */
+    padding: 1rem;
     gap: 1.25rem;
   }
 
-  /* Sur mobile : photo centrée et plus petite */
-  .photo-wrapper {
-    margin-top: 0.5rem;
-  }
-
+  /* Photo plus petite pour tenir dans la colonne gauche */
   .photo {
-    width: 110px;
-    height: 110px;
+    width: 80px;
+    height: 80px;
   }
 
-  /* Blobs repositionnés pour le mobile */
-  .blob-top {
-    width: 180px;
-    height: 180px;
-    top: -40px;
-    left: -50px;
+  /* Ajustements pour les textes de la sidebar */
+  .sidebar p, .sidebar li, .sidebar span {
+    font-size: 0.75rem; /* Réduit la taille du texte pour pas que ça déborde */
   }
 
-  .blob-bottom {
-    display: none;
-  }
-
-  /* Nom plus petit sur mobile */
+  /* Nom plus petit à droite */
   .cv-name {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     text-align: left;
   }
 
@@ -350,14 +326,14 @@ ul {
     justify-content: flex-start;
   }
 
-  .main-content {
-    padding: 1.5rem;
-    gap: 1.5rem;
-  }
-
-  /* Titre principal réduit sur mobile */
+  /* Titres réduits */
   .sidebar-title,
   .main-title {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  /* Cacher les blobs pour y voir plus clair sur petit écran */
+  .blob-top, .blob-bottom {
+    display: none;
   }
 }
